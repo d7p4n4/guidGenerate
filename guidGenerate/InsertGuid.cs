@@ -56,15 +56,15 @@ namespace guidGenerate
             }
 
             Console.WriteLine(replaced);
-            return replaced;
 
             writeOut(replaced, fileNameOut);
+            return replaced;
         }
 
         public static string[] readIn(string fileName)
         {
 
-            string textFile = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName, fileName + ".cs");
+            string textFile = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\" + fileName + ".cs");
             Console.WriteLine(textFile);
 
             string[] text = File.ReadAllLines(textFile);
@@ -76,8 +76,8 @@ namespace guidGenerate
 
         public static void writeOut(string text, string fileName)
         {
-            System.IO.File.WriteAllText(Path.Combine(@Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\" + fileName + ".cs"), text);
-            Console.WriteLine(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\" + fileName + ".cs");
+            System.IO.File.WriteAllText(Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\" + fileName + ".cs"), text);
+
         }
     }
 }
